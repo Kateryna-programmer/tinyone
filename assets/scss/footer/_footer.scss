@@ -1,0 +1,155 @@
+.footer {
+  background-color: $color-primary;
+
+  @include lg-min {
+    padding-top: $gap * 4.5;
+    padding-bottom: $gap * 7;
+  }
+  @include lg {
+    padding-top: $gap * 3;
+    padding-bottom: $gap * 4;
+  }
+}
+.footer-contacts {
+  @include lg-min {
+    margin-bottom: $gap * 6.3;
+  }
+  @include lg-md {
+    margin-bottom: $gap * 4;
+  }
+  @include md-sm {
+    margin-bottom: $gap * 3;
+  }
+  @include sm {
+    margin-bottom: $gap * 2;
+  }
+  &__title {
+    color: $color-accent;
+
+    @extend %section-title;
+  }
+  &__description {
+    color: $color-gray-light;
+
+    @extend %section-description;
+  }
+  &__form {
+    display: grid;
+
+    gap: $gap;
+    @include lg-min {
+      margin: 0 ($gap * 5) ($gap * 3.5);
+
+      grid-template-columns: 1fr 127px;
+    }
+    @include lg-md {
+      margin: 0 ($gap * 4) ($gap * 2);
+
+      grid-template-columns: 1fr 127px;
+    }
+    @include md-sm {
+      margin: 0 0 $gap;
+
+      grid-template-columns: 1fr 127px;
+    }
+    @include sm {
+      margin: 0 0 $gap;
+    }
+    &-input {
+      padding: ($gap * 0.8) ($gap * 1.1);
+
+      @extend %form-style;
+
+      &::placeholder {
+        color: $color-gray-light;
+      }
+    }
+    &-button {
+      cursor: pointer;
+
+      background-color: $color-accent;
+
+      font-weight: 700;
+
+      @extend %form-style;
+    }
+  }
+  &__socials {
+    display: flex;
+    justify-content: center;
+    &_link {
+      margin: 0 ($gap * 0.75);
+
+      color: $color-accent;
+
+      font-size: 2.75rem;
+      &:hover,
+      &:focus {
+        color: $color-light;
+      }
+    }
+  }
+}
+.footer-bottom {
+  display: grid;
+
+  color: $color-gray-light;
+
+  line-height: 1.3;
+
+  column-gap: $gap;
+  @include lg-min {
+    grid-template-columns: 300px repeat(4, 1fr);
+  }
+  @include lg-md {
+    grid-template-columns: 350px repeat(2, 1fr);
+  }
+  @include md-sm {
+    grid-template-columns: 300px repeat(2, 1fr);
+  }
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  row-gap: $gap * 2;
+  a {
+    color: $color-gray-light;
+    &:hover,
+    &:focus {
+      color: $color-light;
+    }
+  }
+  ul {
+    @include unlist();
+  }
+  > div {
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+
+      width: 2px;
+
+      content: "";
+
+      background-color: rgba($color-light, 0.05);
+    }
+    &:hover {
+      &::after {
+        background-color: rgba($color-light, 0.1);
+      }
+    }
+  }
+  &__first {
+    @include lg-sm {
+      grid-row: 1 / span 2;
+    }
+    @include sm {
+      grid-column: 1 / span 2;
+    }
+    a {
+      font-weight: 700;
+    }
+  }
+}
